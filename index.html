@@ -2,130 +2,255 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MY WORLD</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MY WORLD — путь. интересы. проекты.</title>
+<meta name="description" content="Личный мир: нумизматика, Skyrim, моделирование, бадминтон и проекты.">
 <style>
+:root{
+  --bg:#030608; --panel:#080d10; --gold:#b88a4a; --gold2:#d7b477;
+  --text:#d7c9b5; --muted:#9d9488; --line:rgba(184,138,74,.42);
+}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:#030608;color:#d8c8ae;font-family:Georgia,"Times New Roman",serif}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Georgia,"Times New Roman",serif}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.container{width:min(1180px,92%);margin:auto}
 header{
- position:fixed;z-index:20;top:0;left:0;right:0;
- background:rgba(3,6,8,.9);border-bottom:1px solid #624a2d;
- backdrop-filter:blur(8px)
+  position:fixed;z-index:50;top:0;left:0;right:0;
+  background:rgba(2,5,7,.88);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line)
 }
-.nav{max-width:1200px;height:78px;margin:auto;display:flex;align-items:center;gap:28px;padding:0 20px}
-.logo{margin-right:auto;color:#d4b176;font-size:20px;letter-spacing:2px}
-nav{display:flex;gap:22px;flex-wrap:wrap}
-nav a{color:#b9ad9c;text-decoration:none;font-size:12px}
-nav a:hover{color:#d8b875}
-.hero{position:relative;min-height:760px;padding-top:78px;overflow:hidden;background:#05090b}
-.hero-img{
- position:absolute;inset:0;width:100%;height:100%;
- object-fit:cover;object-position:center center;display:block;
+.nav{height:82px;display:flex;align-items:center;gap:34px}
+.logo{display:flex;align-items:center;gap:12px;margin-right:auto}
+.logo-mark{
+  width:62px;height:70px;display:grid;place-items:center;flex:0 0 auto;
+  background:transparent;position:relative;
 }
-.hero::after{
- content:"";position:absolute;inset:0;
- background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.2) 60%,#030608 100%);
- pointer-events:none;
+.logo-mark img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 2px 5px rgba(0,0,0,.65))
 }
-.hero-content{
- position:relative;z-index:2;min-height:682px;
- display:flex;flex-direction:column;justify-content:center;align-items:center;
- text-align:center;padding:40px 20px;text-shadow:0 3px 18px #000
+.logo strong{display:block;font-size:20px;letter-spacing:2px}
+.logo small{color:#8f8578;letter-spacing:.7px}
+nav{display:flex;gap:25px}
+nav a{font-size:13px;color:#bcb0a0;letter-spacing:.5px;padding:31px 0;border-bottom:2px solid transparent}
+nav a:hover,nav a.active{color:var(--gold2);border-color:var(--gold)}
+.hero{
+  min-height:760px;padding-top:82px;
+  background:
+    linear-gradient(180deg,rgba(2,5,7,.12),rgba(2,5,7,.28) 65%,#030608 100%),
+    url("images/hero.png") center center/cover no-repeat;
+  position:relative;display:flex;align-items:center
 }
-.hero-content small{color:#d2ad70;letter-spacing:4px;font-size:16px}
-h1{font-size:clamp(45px,7vw,82px);margin:12px 0;color:#e0d2bd;letter-spacing:4px}
-.hero-content p{font:16px/1.8 Arial,sans-serif;color:#d0c7ba}
-.btn{display:inline-block;margin-top:22px;padding:13px 30px;border:1px solid #a07840;color:#d2ad70;text-decoration:none}
-.section{padding:70px 20px;background:#05090b}
-.container{max-width:1200px;margin:auto}
-.title{text-align:center;font-size:28px;letter-spacing:4px;color:#cdb78f;margin:0 0 35px}
-.cards{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
-.card{min-height:230px;border:1px solid #514027;background:#0a1012;padding:25px 14px;text-align:center}
-.card .icon{font-size:35px;color:#c49a5e}
-.card h3{font-size:15px;color:#d0ae74;letter-spacing:1px}
-.card p{font:13px/1.6 Arial,sans-serif;color:#9f978e}
-.card a{font-size:12px;color:#c49a5e}
-.about{display:grid;grid-template-columns:1fr 1fr;border:1px solid #514027}
-.about img{width:100%;height:100%;min-height:350px;object-fit:cover}
-.about-text{padding:50px;background:#080d10}
-.about-text h2{font-size:30px;color:#cdb78f}
-.about-text p{font:15px/1.8 Arial,sans-serif;color:#aaa198}
-.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.project{height:250px;border:1px solid #514027;background:url("images/04_projects.png") center/cover no-repeat;position:relative}
-.project div{position:absolute;bottom:0;left:0;right:0;padding:45px 20px 18px;background:linear-gradient(transparent,rgba(0,0,0,.95))}
-footer{border-top:1px solid #514027;padding:35px 20px;text-align:center;color:#817970}
-@media(max-width:900px){.cards{grid-template-columns:repeat(3,1fr)}.about{grid-template-columns:1fr}}
-@media(max-width:600px){.nav{height:auto;padding:12px 15px;flex-wrap:wrap}.logo{width:100%}nav{gap:14px}.hero{min-height:620px}.hero-content{min-height:542px}.cards,.projects{grid-template-columns:1fr}.about{grid-template-columns:1fr}}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 35%,transparent 0 22%,rgba(0,0,0,.22) 65%,rgba(0,0,0,.58))}
+.hero-content{position:relative;z-index:1;text-align:center;width:650px;margin:0 auto;padding-top:30px}
+.kicker{color:var(--gold2);letter-spacing:4px;font-size:17px}
+h1{font-size:72px;line-height:1;margin:18px 0;color:#dfd0ba;text-shadow:0 5px 25px #000;letter-spacing:3px}
+.hero p{font-family:Arial,sans-serif;color:#d2c9bd;line-height:1.8;font-size:17px}
+.btn{
+  display:inline-block;margin-top:20px;padding:15px 32px;border:1px solid var(--gold);
+  color:var(--gold2);background:rgba(3,6,8,.58);letter-spacing:1px
+}
+.btn:hover{background:rgba(184,138,74,.13)}
+.section{padding:70px 0;background:linear-gradient(#030608,#070b0e)}
+.section-title{text-align:center;font-size:29px;letter-spacing:4px;color:#cdbb9f;margin:0 0 38px}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.card{
+  min-height:245px;padding:26px 16px;text-align:center;background:
+  linear-gradient(145deg,rgba(20,25,26,.95),rgba(4,8,10,.96));
+  border:1px solid var(--line);position:relative
+}
+.card::before{content:"✦";position:absolute;top:10px;left:50%;transform:translateX(-50%);color:#896536}
+.icon{font-size:38px;color:var(--gold2);margin:15px 0}
+.card h3{font-size:17px;letter-spacing:1px;color:#c9a873}
+.card p{font:13px/1.7 Arial,sans-serif;color:#9e968d}
+.card a{display:inline-block;margin-top:12px;color:var(--gold2);font-size:12px}
+.about{padding:70px 0}
+.about-box{display:grid;grid-template-columns:1fr 1fr;min-height:350px;border:1px solid var(--line);background:#070c0f}
+.about-image{background:url("images/03_about.png") center/cover no-repeat;min-height:350px}
+.about-text{padding:55px 60px}
+.about-text h2{font-size:31px;letter-spacing:3px;margin-top:0;color:#cdbb9f}
+.about-text p{font:15px/1.9 Arial,sans-serif;color:#aaa198}
+.projects{padding:25px 0 80px}
+.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.project{
+  min-height:270px;border:1px solid var(--line);position:relative;overflow:hidden;
+  background:#080d10
+}
+.project:nth-child(1){background:url("images/04_projects.png") left center/300% 100%}
+.project:nth-child(2){background:url("images/04_projects.png") center center/300% 100%}
+.project:nth-child(3){background:url("images/04_projects.png") right center/300% 100%}
+.project-info{position:absolute;left:0;right:0;bottom:0;padding:55px 22px 20px;background:linear-gradient(transparent,rgba(0,0,0,.95))}
+.project h3{margin:0 0 7px;color:#d0ae75;letter-spacing:1px}
+.project p{margin:0;font:14px Arial;color:#c4b9aa}
+footer{border-top:1px solid var(--line);padding:35px 0;color:#817a72;font:13px Arial}
+.footer-row{display:flex;justify-content:space-between;align-items:center;gap:20px}
+.social{display:flex;gap:12px}
+.social a{width:42px;height:42px;border:1px solid var(--line);display:grid;place-items:center;color:var(--gold2)}
+@media(max-width:900px){
+  .nav{height:auto;min-height:72px;flex-wrap:wrap;padding:10px 0}
+  nav{order:3;width:100%;overflow:auto;gap:20px}
+  nav a{padding:10px 0;white-space:nowrap}
+  .hero{min-height:680px}
+  h1{font-size:52px}
+  .grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:600px){
+  .logo strong{font-size:17px}
+  .logo small{font-size:10px}
+  .hero{min-height:620px}
+  h1{font-size:40px}
+  .hero-content{width:90%}
+  .grid,.project-grid,.about-box{grid-template-columns:1fr}
+  .card{min-height:210px}
+  .about-text{padding:35px 25px}
+  .footer-row{flex-direction:column}
+}
+
+.page-transition{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  background:#020405;
+  pointer-events:none;
+  opacity:0;
+  transition:opacity .45s ease;
+}
+.page-transition.active{opacity:1;pointer-events:auto}
+
 </style>
-</head>
+<style>
+.page-transition{position:fixed;inset:0;z-index:9999;background:#020405;pointer-events:none;opacity:0;transition:opacity .42s ease}
+.page-transition.active{opacity:1;pointer-events:auto}
+.inner-hero{padding:150px 0 80px;min-height:430px;display:flex;align-items:center;background:
+radial-gradient(circle at 75% 35%,rgba(185,216,223,.10),transparent 28%),
+linear-gradient(180deg,#091216,#030608)}
+.inner-hero .container{text-align:center}
+.inner-kicker{font:12px Arial,sans-serif;letter-spacing:5px;color:#9bb7bd}
+.inner-title{font-size:58px;letter-spacing:6px;color:#e1edef;margin:16px 0;text-shadow:0 5px 25px #000}
+.inner-subtitle{max-width:680px;margin:auto;font:15px/1.9 Arial,sans-serif;color:#9caeb1}
+.content-section{padding:75px 0;background:#030608}
+.content-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.content-card{padding:30px;border:1px solid rgba(185,216,223,.22);background:linear-gradient(145deg,#0a1115,#05090b);min-height:220px}
+.content-card h3{color:#c8dfe3;letter-spacing:2px;margin-top:0}
+.content-card p{font:14px/1.9 Arial,sans-serif;color:#95a5a8}
+.big-panel{border:1px solid rgba(185,216,223,.22);background:#070d10;padding:42px}
+.big-panel p{font:15px/2 Arial,sans-serif;color:#a5b2b5}
+.back{display:inline-block;margin-top:28px;padding:13px 25px;border:1px solid #9dbcc2;color:#dbecef;font:11px Arial,sans-serif;letter-spacing:2px}
+footer{border-top:1px solid rgba(185,216,223,.22);padding:30px 0;text-align:center;font:12px Arial;color:#718084}
+@media(max-width:800px){.content-grid{grid-template-columns:1fr}.inner-title{font-size:42px}}
+</style></head>
 <body>
+<div class="page-transition" id="pageTransition"></div>
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+ const t=document.getElementById("pageTransition");
+ document.querySelectorAll("a[href]").forEach(a=>{
+  const h=a.getAttribute("href");
+  if(!h || h.startsWith("#") || h.startsWith("http") || h==="#") return;
+  a.addEventListener("click",e=>{
+   e.preventDefault(); t.classList.add("active");
+   setTimeout(()=>location.href=h,420);
+  });
+ });
+});
+</script>
+<div class="page-transition" id="pageTransition"></div>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const transition = document.getElementById("pageTransition");
+  document.querySelectorAll("a[href]").forEach(link => {
+    const href = link.getAttribute("href");
+    if (!href || href.startsWith("#") || href.startsWith("http") || href === "#") return;
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      transition.classList.add("active");
+      setTimeout(() => window.location.href = href, 420);
+    });
+  });
+});
+</script>
 <header>
- <div class="nav">
-  <div class="logo">MY WORLD</div>
-  <nav>
-   <a href="#home">ГЛАВНАЯ</a>
-   <a href="#about">ОБО МНЕ</a>
-   <a href="#interests">НУМИЗМАТИКА</a>
-   <a href="#skyrim">SKYRIM</a>
-   <a href="#projects">МОДЕЛИРОВАНИЕ</a>
-   <a href="#interests">БАДМИНТОН</a>
-   <a href="#projects">ГАЛЕРЕЯ</a>
-   <a href="#contacts">КОНТАКТЫ</a>
-  </nav>
- </div>
+  <div class="container nav">
+    <a class="logo" href="#home">
+      <span class="logo-mark"><img src="images/crest-snake.png" alt="Золотой змеиный герб"></span>
+      <span><strong>MY WORLD</strong><small>путь. интересы. проекты.</small></span>
+    </a>
+    <nav>
+      <a class="active" href="index.html">ГЛАВНАЯ</a>
+      <a href="about.html">ОБО МНЕ</a>
+      <a href="numismatics.html">НУМИЗМАТИКА</a>
+      <a href="skyrim.html">SKYRIM</a>
+      <a href="modeling.html">МОДЕЛИРОВАНИЕ</a>
+      <a href="badminton.html">БАДМИНТОН</a>
+      <a href="gallery.html">ГАЛЕРЕЯ</a>
+      <a href="contacts.html">КОНТАКТЫ</a>
+    </nav>
+  </div>
 </header>
 
 <main>
 <section class="hero" id="home">
- <img class="hero-img" src="./images/hero.png" alt="Фэнтезийный замок и нордский маг">
- <div class="hero-content">
-  <small>ДОБРО ПОЖАЛОВАТЬ</small>
-  <h1>В МОЙ МИР</h1>
-  <p>Здесь собраны мои увлечения, проекты и идеи.<br>Место, где интересы превращаются в истории,<br>а хобби — в маленькие миры.</p>
-  <a class="btn" href="#interests">УЗНАТЬ БОЛЬШЕ</a>
- </div>
+  <div class="hero-content">
+    <div class="kicker">ДОБРО ПОЖАЛОВАТЬ</div>
+    <h1>В МОЙ МИР</h1>
+    <p>Здесь собраны мои увлечения, проекты и идеи.<br>
+    Место, где интересы превращаются в истории,<br>
+    а хобби — в маленькие миры.</p>
+    <a class="btn" href="#interests">УЗНАТЬ БОЛЬШЕ</a>
+  </div>
 </section>
 
 <section class="section" id="interests">
- <div class="container">
-  <h2 class="title">МОИ ИНТЕРЕСЫ</h2>
-  <div class="cards">
-   <article class="card"><div class="icon">◉</div><h3>НУМИЗМАТИКА</h3><p>Коллекция монет разных стран и эпох.</p><a href="#contacts">ПОДРОБНЕЕ →</a></article>
-   <article class="card" id="skyrim"><div class="icon">♢</div><h3>SKYRIM</h3><p>Моды, скриншоты, прохождения и истории.</p><a href="#projects">ПОДРОБНЕЕ →</a></article>
-   <article class="card"><div class="icon">⌂</div><h3>МОДЕЛИРОВАНИЕ</h3><p>Миниатюрные комнаты и улицы.</p><a href="#projects">ПОДРОБНЕЕ →</a></article>
-   <article class="card"><div class="icon">♨</div><h3>БАДМИНТОН</h3><p>Спорт, энергия и отдых от всего.</p><a href="#contacts">ПОДРОБНЕЕ →</a></article>
-   <article class="card"><div class="icon">◎</div><h3>ГАЛЕРЕЯ</h3><p>Фотографии, моменты и вдохновение.</p><a href="#projects">ПОДРОБНЕЕ →</a></article>
-   <article class="card"><div class="icon">✉</div><h3>КОНТАКТЫ</h3><p>Связаться со мной через социальные сети.</p><a href="#contacts">НАПИСАТЬ →</a></article>
-  </div>
- </div>
+<div class="container">
+<h2 class="section-title">МОИ ИНТЕРЕСЫ</h2>
+<div class="grid">
+<article class="card"><div class="icon">◉</div><h3>НУМИЗМАТИКА</h3><p>Коллекционирую монеты разных стран и эпох. История в металле.</p><a href="#contacts">ПОДРОБНЕЕ →</a></article>
+<article class="card" id="skyrim"><div class="icon">♢</div><h3>SKYRIM</h3><p>Любимая вселенная. Моды, скриншоты, прохождения и истории.</p><a href="#projects">ПОДРОБНЕЕ →</a></article>
+<article class="card"><div class="icon">⌂</div><h3>МОДЕЛИРОВАНИЕ</h3><p>Создаю миниатюрные комнаты и улицы. Мир в масштабе.</p><a href="#projects">ПОДРОБНЕЕ →</a></article>
+<article class="card"><div class="icon">♨</div><h3>БАДМИНТОН</h3><p>Мой спорт, моя энергия и способ отвлечься от всего.</p><a href="#contacts">ПОДРОБНЕЕ →</a></article>
+<article class="card"><div class="icon">◉</div><h3>ГАЛЕРЕЯ</h3><p>Фотографии, моменты, вдохновение и то, что нравится.</p><a href="#projects">ПОДРОБНЕЕ →</a></article>
+<article class="card"><div class="icon">✉</div><h3>КОНТАКТЫ</h3><p>Связаться со мной можно через социальные сети.</p><a href="#contacts">ПОДРОБНЕЕ →</a></article>
+</div>
+</div>
 </section>
 
-<section class="section" id="about">
- <div class="container">
-  <div class="about">
-   <img src="./images/03_about.png" alt="Обо мне">
-   <div class="about-text">
-    <h2>ОБО МНЕ</h2>
-    <p>Я увлекаюсь многими вещами: от древних монет до виртуальных миров, от миниатюрных улиц до спортивных побед.</p>
-    <p>Этот сайт — мой личный дневник и коллекция всего, что вдохновляет.</p>
-    <a class="btn" href="#projects">ЧИТАТЬ ДАЛЬШЕ</a>
-   </div>
-  </div>
- </div>
+<section class="about" id="about">
+<div class="container">
+<div class="about-box">
+<div class="about-image"></div>
+<div class="about-text">
+<h2>ОБО МНЕ</h2>
+<p>Я увлекаюсь многими вещами: от древних монет до виртуальных миров, от миниатюрных улиц до спортивных побед.</p>
+<p>Этот сайт — мой личный дневник и коллекция всего, что вдохновляет.</p>
+<a class="btn" href="#projects">ЧИТАТЬ ДАЛЬШЕ</a>
+</div>
+</div>
+</div>
 </section>
 
-<section class="section" id="projects">
- <div class="container">
-  <h2 class="title">ПОСЛЕДНИЕ ПРОЕКТЫ</h2>
-  <div class="projects">
-   <article class="project"><div><b>SKYRIM</b><br>Новый модпак</div></article>
-   <article class="project"><div><b>МОДЕЛИРОВАНИЕ</b><br>Миниатюрная комната</div></article>
-   <article class="project"><div><b>НУМИЗМАТИКА</b><br>Редкая монета</div></article>
-  </div>
- </div>
+<section class="projects" id="projects">
+<div class="container">
+<h2 class="section-title">ПОСЛЕДНИЕ ПРОЕКТЫ</h2>
+<div class="project-grid">
+<article class="project"><div class="project-info"><h3>SKYRIM</h3><p>Новый модпак 2025</p></div></article>
+<article class="project"><div class="project-info"><h3>МОДЕЛИРОВАНИЕ</h3><p>Миниатюрная комната</p></div></article>
+<article class="project"><div class="project-info"><h3>НУМИЗМАТИКА</h3><p>Редкая монета</p></div></article>
+</div>
+</div>
 </section>
 </main>
-<footer id="contacts">© 2026 MY WORLD · «Дорогу осилит идущий»</footer>
+
+<footer id="contacts">
+<div class="container footer-row">
+<div>© 2026 My World<br>Все права защищены.</div>
+<div class="social">
+<a href="#" aria-label="VK">VK</a>
+<a href="#" aria-label="Telegram">TG</a>
+<a href="#" aria-label="YouTube">YT</a>
+<a href="#" aria-label="Instagram">IG</a>
+</div>
+<div>«Дорогу осилит идущий»</div>
+</div>
+</footer>
 </body>
 </html>

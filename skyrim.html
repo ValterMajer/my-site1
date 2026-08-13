@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SKYRIM — MY WORLD</title>
+<style>
+:root{
+  --night:#05080a;
+  --ice:#b9d8df;
+  --ice2:#e2f3f5;
+  --steel:#6f858b;
+  --gold:#b99a62;
+  --line:rgba(185,216,223,.28);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--night);color:#dbe5e7;
+  font-family:Georgia,"Times New Roman",serif;
+  animation:pageIn .7s ease both;
+}
+@keyframes pageIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+a{text-decoration:none;color:inherit}
+.container{width:min(1160px,92%);margin:auto}
+
+header{
+  position:fixed;top:0;left:0;right:0;z-index:20;
+  background:rgba(2,5,7,.82);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line)
+}
+.nav{height:78px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-size:18px;letter-spacing:4px;color:var(--ice2)}
+.nav a{font:12px Arial,sans-serif;letter-spacing:1.5px;color:#aebdc0;margin-left:28px}
+.nav a:hover{color:var(--ice2)}
+
+.hero{
+  min-height:760px;padding-top:78px;position:relative;display:flex;
+  align-items:center;overflow:hidden;
+  background:
+    radial-gradient(circle at 70% 35%,rgba(130,180,200,.13),transparent 25%),
+    linear-gradient(180deg,#0a1216 0%,#071014 45%,#030608 100%);
+}
+.hero:before{
+  content:"";position:absolute;width:760px;height:760px;
+  right:-160px;top:70px;border-radius:50%;
+  background:radial-gradient(circle,rgba(173,215,225,.12),transparent 65%);
+}
+.mountain{
+  position:absolute;left:0;right:0;bottom:0;height:42%;
+  background:linear-gradient(145deg,transparent 28%,#111d22 29%,#071014 55%,#020405 56%);
+  clip-path:polygon(0 70%,12% 35%,22% 57%,34% 15%,45% 50%,58% 22%,69% 62%,82% 10%,100% 52%,100% 100%,0 100%);
+  opacity:.9;
+}
+.hero-content{position:relative;z-index:2;text-align:center;width:760px;margin:auto}
+.rune{font-size:54px;color:var(--ice);text-shadow:0 0 25px rgba(160,220,235,.35)}
+.kicker{font:12px Arial,sans-serif;letter-spacing:6px;color:#91aeb4}
+h1{font-size:82px;letter-spacing:8px;margin:15px 0;color:#e5f0f2;text-shadow:0 5px 25px #000}
+.subtitle{font:16px/1.9 Arial,sans-serif;color:#aebec2;max-width:650px;margin:auto}
+.btn{
+  display:inline-block;margin-top:30px;padding:15px 30px;
+  border:1px solid var(--ice);color:var(--ice2);
+  font:12px Arial,sans-serif;letter-spacing:2px;
+  background:rgba(5,10,12,.5);transition:.3s
+}
+.btn:hover{background:rgba(185,216,223,.1);box-shadow:0 0 25px rgba(185,216,223,.12)}
+
+.section{padding:85px 0;background:#030608}
+.title{text-align:center;font-size:31px;letter-spacing:5px;color:var(--ice2);margin:0 0 45px}
+.lore{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.panel{
+  border:1px solid var(--line);background:linear-gradient(145deg,#0a1115,#05090b);
+  padding:34px;min-height:230px;position:relative;overflow:hidden
+}
+.panel:after{content:"ᛉ";position:absolute;right:22px;bottom:-25px;font-size:130px;color:rgba(185,216,223,.035)}
+.panel h3{margin:0 0 15px;color:var(--ice);letter-spacing:2px}
+.panel p{font:14px/1.9 Arial,sans-serif;color:#9eadaf;margin:0}
+
+.classes{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.class-card{text-align:center;padding:32px 18px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.class-card .symbol{font-size:42px;color:var(--gold);margin-bottom:18px}
+.class-card h3{color:#d6e2e3;font-size:16px;letter-spacing:1px}
+.class-card p{font:12px/1.7 Arial;color:#89989b}
+
+.quote{
+  padding:100px 20px;text-align:center;
+  background:linear-gradient(180deg,#030608,#0a1216,#030608)
+}
+.quote p{font-size:28px;color:#d9e6e8;letter-spacing:1px;margin:0}
+.quote small{display:block;margin-top:20px;font:11px Arial;color:#7f9094;letter-spacing:3px}
+
+footer{border-top:1px solid var(--line);padding:30px 0;text-align:center;font:12px Arial;color:#718084}
+
+@media(max-width:800px){
+  h1{font-size:52px;letter-spacing:4px}
+  .lore{grid-template-columns:1fr}
+  .classes{grid-template-columns:1fr 1fr}
+  .nav a{margin-left:12px}
+}
+@media(max-width:520px){
+  .nav{height:auto;padding:18px 0;flex-wrap:wrap;gap:12px}
+  .nav div{width:100%}
+  .hero{min-height:680px}
+  h1{font-size:40px}
+  .classes{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <div class="brand">MY WORLD</div>
+    <div>
+      <a href="index.html">ГЛАВНАЯ</a>
+      <a href="#lore">МИР</a>
+      <a href="#classes">ГЕРОЙ</a>
+      <a href="#quote">АТМОСФЕРА</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="mountain"></div>
+  <div class="hero-content">
+    <div class="rune">ᛉ</div>
+    <div class="kicker">THE ELDER SCROLLS V</div>
+    <h1>SKYRIM</h1>
+    <p class="subtitle">
+      Холодные вершины, древние руины, драконы над небом и дороги,
+      которые ведут туда, куда ещё никто не обещал тебя привести.
+    </p>
+    <a class="btn" href="#lore">ВОЙТИ В СКУМРИМ</a>
+  </div>
+</section>
+
+<section class="section" id="lore">
+  <div class="container">
+    <h2 class="title">ЗЕМЛЯ СЕВЕРА</h2>
+    <div class="lore">
+      <article class="panel">
+        <h3>СКАЙРИМ</h3>
+        <p>Суровая северная земля, где рядом существуют заснеженные горы,
+        древние гробницы, города и забытые тропы. Здесь у каждой дороги
+        есть своя история.</p>
+      </article>
+      <article class="panel">
+        <h3>ГОЛОС ДРАКОНА</h3>
+        <p>Сила древнего языка превращает слова в оружие. Один крик может
+        изменить ход битвы, отбросить врага или заставить самого героя
+        почувствовать мощь драконов.</p>
+      </article>
+      <article class="panel">
+        <h3>ДРЕВНИЕ РУИНЫ</h3>
+        <p>Под землей скрываются забытые залы, ловушки, загадки и сокровища.
+        Некоторые места выглядят мертвыми, пока не сделаешь первый шаг внутрь.</p>
+      </article>
+      <article class="panel">
+        <h3>СВОЯ ИСТОРИЯ</h3>
+        <p>Ты сам решаешь, кем стать: странником, воином, магом, вором,
+        охотником за артефактами или героем, который просто идёт своей дорогой.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="classes">
+  <div class="container">
+    <h2 class="title">ПУТЬ ГЕРОЯ</h2>
+    <div class="classes">
+      <article class="class-card"><div class="symbol">⚔</div><h3>ВОИН</h3><p>Сталь, щит и ближний бой.</p></article>
+      <article class="class-card"><div class="symbol">✦</div><h3>МАГ</h3><p>Разрушительная сила школ магии.</p></article>
+      <article class="class-card"><div class="symbol">◈</div><h3>СКРЫТНЫЙ</h3><p>Тишина, лук и удар из тени.</p></article>
+      <article class="class-card"><div class="symbol">ᛉ</div><h3>ДРАКОНОРОЖДЁННЫЙ</h3><p>Голос, способный бросить вызов драконам.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="quote" id="quote">
+  <p>«Путь героя начинается с первого шага»</p>
+  <small>SKYRIM · MY WORLD</small>
+  <br>
+  <a class="btn" href="index.html">← ВЕРНУТЬСЯ В МОЙ МИР</a>
+</section>
+</main>
+
+<footer>© 2026 MY WORLD · SKYRIM</footer>
+</body>
+</html>
